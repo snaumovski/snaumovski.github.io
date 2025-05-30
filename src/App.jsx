@@ -1,72 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
 
 const Portfolio = () => {
 	const [selectedProject, setSelectedProject] = useState(null);
+	const [projects, setProjects] = useState([]);
+	const [loading, setLoading] = useState(true);
 
-	// Sample project data - replace with your actual projects
-	const projects = [
+	// PROJECT CONFIGURATION - Only edit this section
+	const projectConfig = [
 		{
-			id: 1,
+			folderName: "crowd-space",
 			title: "CROWD SPACE",
 			description: `Work completed with KieranTimberlake
 
-Crowd Space is an iterative virtual reality design tool/proof of concept that allows architects to design spaces in accordance with a real-time crowd simulation. With pre-loaded room types, a designer constructs a floor plate at a tabletop scale and then instantiates various agent types to interact with the newly created space. As a result of this immediate interaction, architects are able to design in a feedback loop while remaining immersed in the virtual environment.
+Crowd Space is an iterative virtual reality design tool/proof of concept that allows architects to design spaces in accordance with a real-time crowd simulation. With pre-loaded room types, a designer constructs a floor plate at a tabletop scale and then instantiates various agent types to interact with the newly created space.
 
 The splash screen was procedurally generated with Grasshopper.`,
-			thumbnailImage: "/api/placeholder/600/400",
-			projectImages: [
-				"/api/placeholder/800/600",
-				"/api/placeholder/800/500",
-				"/api/placeholder/800/700",
-				"/api/placeholder/800/600",
-			],
+			images: ["1.jpg", "2.jpg", "3.jpg"], // List your other images here
 		},
 		{
-			id: 2,
+			folderName: "photobioreactor",
 			title: "PHOTOBIOREACTOR",
 			description: `"We believe that, if human beings are part of an ecology, then the objects humans make should also be part of it. Among humans and insects alike, inhabitable spaces are the result of a deliberate organization of material, energy, information and a continuous interaction with the environment, whose goal is to help develop tight-knit communities."
 
-The purpose of this project is to design a photobioreactor in an urban environment for the production and consumption of future food - specifically the micro algae spirulina. The shape of the brain coral lends itself readily to the form of a tubular photobioreactor, with winding hills and valleys representing the tubes themselves. Brain Corals exist symbiotically with algae; the algae depends on the stony coral for structure while the coral depends on the algae for food.
-
-A brain coral pattern can be generated using a couple of different algorithms, particularly through the concepts of reaction-diffusion and differential growth. Reaction-diffusion is pixel or grid based simulation that forms all at once, instead of gradually from an initial position – which does not lend itself to the functionality of a tubular photobioreactor. Using the concept of linear differential growth, we were able to design a tube system that was at once continuous and variegated - in a controlled way.`,
-			thumbnailImage: "/api/placeholder/600/400",
-			projectImages: [
-				"/api/placeholder/800/600",
-				"/api/placeholder/800/500",
-				"/api/placeholder/800/700",
-			],
+The purpose of this project is to design a photobioreactor in an urban environment for the production and consumption of future food - specifically the micro algae spirulina.`,
+			images: ["1.jpg", "2.jpg"], // List your other images here
 		},
-		{
-			id: 3,
-			title: "PROJECT THREE",
-			description: `This is where your project description would go. Replace this with your actual project content.
-
-You can include multiple paragraphs here to describe your design process, methodology, and outcomes. The left column will scroll independently if the content is longer than the viewport.`,
-			thumbnailImage: "/api/placeholder/600/400",
-			projectImages: ["/api/placeholder/800/600", "/api/placeholder/800/500"],
-		},
-		{
-			id: 4,
-			title: "PROJECT FOUR",
-			description: `Another project description goes here. This template is fully customizable to match your content and design aesthetic.
-
-Add as much detail as needed about your architectural projects, computational design work, or research.`,
-			thumbnailImage: "/api/placeholder/600/400",
-			projectImages: [
-				"/api/placeholder/800/600",
-				"/api/placeholder/800/700",
-				"/api/placeholder/800/500",
-			],
-		},
-		{
-			id: 5,
-			title: "PROJECT FIVE",
-			description: `Fifth project description. The gallery will automatically adjust to accommodate any number of projects you have.`,
-			thumbnailImage: "/api/placeholder/600/400",
-			projectImages: ["/api/placeholder/800/600"],
-		},
+		// Add new projects here following the same pattern
 	];
+
+	// Build project data from config
+	useEffect(() => {
+		const loadedProjects = projectConfig.map((config, index) => ({
+			id: index + 1,
+			title: config.title,
+			description: config.description,
+			thumbnailImage: `/${config.folderName}/images/thumb.jpg`,
+			projectImages: config.images.map(
+				(img) => `/${config.folderName}/images/${img}`
+			),
+		}));
+
+		setProjects(loadedProjects);
+		setLoading(false);
+	}, []);
 
 	const HomePage = () => (
 		<div className="min-h-screen bg-white text-black">
@@ -82,28 +59,38 @@ Add as much detail as needed about your architectural projects, computational de
 			{/* Projects Gallery */}
 			<main className="pb-12">
 				<div className="max-w-6xl mx-auto px-6">
-					<div className="grid grid-cols-2">
-						{projects.map((project) => (
-							<div
-								key={project.id}
-								className="group cursor-pointer relative"
-								onClick={() => setSelectedProject(project)}>
-								<div className="aspect-[3/2] bg-gray-100 overflow-hidden">
-									<img
-										src={project.thumbnailImage}
-										alt={project.title}
-										className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-70"
-									/>
-									{/* Project title overlay */}
-									<div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-										<h3 className="text-white text-xl font-light tracking-wide text-center px-4">
-											{project.title}
-										</h3>
+					{loading ? (
+						<div className="text-center py-12">Loading projects...</div>
+					) : (
+						<div className="grid grid-cols-2">
+							{projects.map((project) => (
+								<div
+									key={project.id}
+									className="group cursor-pointer relative"
+									onClick={() => setSelectedProject(project)}>
+									<div className="aspect-[3/2] bg-gray-100 overflow-hidden">
+										<img
+											src={project.thumbnailImage}
+											alt={project.title}
+											className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-70"
+											onError={(e) => {
+												// Try .png if .jpg fails
+												if (e.target.src.includes(".jpg")) {
+													e.target.src = e.target.src.replace(".jpg", ".png");
+												}
+											}}
+										/>
+										{/* Project title overlay */}
+										<div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+											<h3 className="text-white text-xl font-light tracking-wide text-center px-4">
+												{project.title}
+											</h3>
+										</div>
 									</div>
 								</div>
-							</div>
-						))}
-					</div>
+							))}
+						</div>
+					)}
 				</div>
 			</main>
 		</div>
@@ -153,6 +140,9 @@ Add as much detail as needed about your architectural projects, computational de
 										src={image}
 										alt={`${project.title} - Image ${index + 1}`}
 										className="w-full h-auto object-cover"
+										onError={(e) => {
+											console.log(`Failed to load image: ${e.target.src}`);
+										}}
 									/>
 								</div>
 							))}
