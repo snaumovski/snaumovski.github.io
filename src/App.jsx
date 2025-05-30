@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { ArrowLeft } from "lucide-react";
 
 const Portfolio = () => {
 	const [selectedProject, setSelectedProject] = useState(null);
@@ -19,7 +18,7 @@ The splash screen was procedurally generated with Grasshopper.`,
 			media: [
 				{
 					type: "video",
-					url: "https://www.youtube.com/embed/p8ug6mn93xk?si=esEneLukG0B--4NO",
+					url: "https://www.youtube.com/embed/p8ug6mn93xk?si=2xIBL1puQLUIuyG2",
 				},
 				{ type: "image", file: "1.jpg" },
 				{ type: "image", file: "2.jpg" },
@@ -70,9 +69,14 @@ The purpose of this project is to design a photobioreactor in an urban environme
 			{/* Header */}
 			<header className="py-6 md:py-8">
 				<div className="max-w-7xl mx-auto px-4 md:px-6">
-					<h1 className="text-xl md:text-2xl font-light tracking-[0.2em] md:tracking-[0.3em] text-center">
+					<h1
+						className="text-xl md:text-2xl font-bold tracking-[0.2em] md:tracking-[0.3em] text-center"
+						style={{ fontFamily: "'Varela Round', sans-serif" }}>
 						SABRINA NAUMOVSKI
 					</h1>
+					<p className="text-xs font-light text-gray-400 text-center mt-2 tracking-[0.15em]">
+						architect + researcher
+					</p>
 				</div>
 			</header>
 
@@ -118,15 +122,21 @@ The purpose of this project is to design a photobioreactor in an urban environme
 
 	const ProjectPage = ({ project }) => (
 		<div className="min-h-screen bg-white text-black">
-			{/* Header */}
-			<header className="py-4 md:py-6 border-b border-gray-200">
-				<div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center">
-					<button
-						onClick={() => setSelectedProject(null)}
-						className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
-						<ArrowLeft size={20} />
-						Back
-					</button>
+			{/* Header with Logo */}
+			<header className="py-6 md:py-8 border-b border-gray-200">
+				<div className="max-w-7xl mx-auto px-4 md:px-6">
+					<div
+						className="cursor-pointer"
+						onClick={() => setSelectedProject(null)}>
+						<h1
+							className="text-xl md:text-2xl font-bold tracking-[0.3em] md:tracking-[0.4em] text-center hover:text-gray-600 transition-colors"
+							style={{ fontFamily: "'Varela Round', sans-serif" }}>
+							SABRINA NAUMOVSKI
+						</h1>
+						<p className="text-xs font-light text-gray-400 text-center mt-2 tracking-[0.15em]">
+							architect + researcher
+						</p>
+					</div>
 				</div>
 			</header>
 
