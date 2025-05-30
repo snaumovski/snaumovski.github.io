@@ -16,7 +16,14 @@ const Portfolio = () => {
 Crowd Space is an iterative virtual reality design tool/proof of concept that allows architects to design spaces in accordance with a real-time crowd simulation. With pre-loaded room types, a designer constructs a floor plate at a tabletop scale and then instantiates various agent types to interact with the newly created space.
 
 The splash screen was procedurally generated with Grasshopper.`,
-			images: ["1.jpg", "2.jpg", "3.jpg"], // List your other images here
+			media: [
+				{
+					type: "video",
+					url: "https://www.youtube.com/embed/p8ug6mn93xk?si=s6sAhEf8fmJnCjbZ",
+				},
+				{ type: "image", file: "1.jpg" },
+				{ type: "image", file: "2.jpg" },
+			],
 		},
 		{
 			folderName: "photobioreactor",
@@ -24,7 +31,16 @@ The splash screen was procedurally generated with Grasshopper.`,
 			description: `"We believe that, if human beings are part of an ecology, then the objects humans make should also be part of it. Among humans and insects alike, inhabitable spaces are the result of a deliberate organization of material, energy, information and a continuous interaction with the environment, whose goal is to help develop tight-knit communities."
 
 The purpose of this project is to design a photobioreactor in an urban environment for the production and consumption of future food - specifically the micro algae spirulina.`,
-			images: ["1.jpg", "2.jpg"], // List your other images here
+			media: [
+				{ type: "image", file: "1.jpg" },
+				{ type: "image", file: "2.jpg" },
+			],
+		},
+		{
+			folderName: "test-project",
+			title: "TEST PROJECT",
+			description: `This is a test project.`,
+			media: [],
 		},
 		// Add new projects here following the same pattern
 	];
@@ -36,9 +52,13 @@ The purpose of this project is to design a photobioreactor in an urban environme
 			title: config.title,
 			description: config.description,
 			thumbnailImage: `/${config.folderName}/images/thumb.jpg`,
-			projectImages: config.images.map(
-				(img) => `/${config.folderName}/images/${img}`
-			),
+			media: config.media.map((item) => ({
+				type: item.type,
+				url:
+					item.type === "video"
+						? item.url
+						: `/${config.folderName}/images/${item.file}`,
+			})),
 		}));
 
 		setProjects(loadedProjects);
@@ -134,16 +154,28 @@ The purpose of this project is to design a photobioreactor in an urban environme
 					{/* Right Column - 2/3 width */}
 					<div className="w-2/3">
 						<div className="space-y-8">
-							{project.projectImages.map((image, index) => (
+							{project.media.map((item, index) => (
 								<div key={index} className="w-full">
-									<img
-										src={image}
-										alt={`${project.title} - Image ${index + 1}`}
-										className="w-full h-auto object-cover"
-										onError={(e) => {
-											console.log(`Failed to load image: ${e.target.src}`);
-										}}
-									/>
+									{item.type === "video" ? (
+										<div className="aspect-video bg-gray-900 rounded-sm overflow-hidden">
+											<iframe
+												src={item.url}
+												title={`${project.title} - Video ${index + 1}`}
+												className="w-full h-full"
+												allowFullScreen
+												frameBorder="0"
+											/>
+										</div>
+									) : (
+										<img
+											src={item.url}
+											alt={`${project.title} - Image ${index + 1}`}
+											className="w-full h-auto object-cover"
+											onError={(e) => {
+												console.log(`Failed to load image: ${e.target.src}`);
+											}}
+										/>
+									)}
 								</div>
 							))}
 						</div>
