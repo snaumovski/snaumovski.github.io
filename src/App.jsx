@@ -1,67 +1,50 @@
 import React, { useState, useEffect } from "react";
+import { projectConfig } from "./projectConfig";
 
 const Portfolio = () => {
 	const [selectedProject, setSelectedProject] = useState(null);
 	const [projects, setProjects] = useState([]);
 	const [loading, setLoading] = useState(true);
 
-	// PROJECT CONFIGURATION - Only edit this section
-	const projectConfig = [
-		{
-			folderName: "crowd-space",
-			title: "CROWD SPACE",
-			description: `Work completed with KieranTimberlake
-
-Crowd Space is an iterative virtual reality design tool/proof of concept that allows architects to design spaces in accordance with a real-time crowd simulation. With pre-loaded room types, a designer constructs a floor plate at a tabletop scale and then instantiates various agent types to interact with the newly created space.
-
-The splash screen was procedurally generated with Grasshopper.`,
-			media: [
-				{
-					type: "video",
-					url: "https://www.youtube.com/embed/p8ug6mn93xk?si=2xIBL1puQLUIuyG2",
-				},
-				{ type: "image", file: "1.jpg" },
-				{ type: "image", file: "2.jpg" },
-			],
-		},
-		{
-			folderName: "photobioreactor",
-			title: "PHOTOBIOREACTOR",
-			description: `"We believe that, if human beings are part of an ecology, then the objects humans make should also be part of it. Among humans and insects alike, inhabitable spaces are the result of a deliberate organization of material, energy, information and a continuous interaction with the environment, whose goal is to help develop tight-knit communities."
-
-The purpose of this project is to design a photobioreactor in an urban environment for the production and consumption of future food - specifically the micro algae spirulina.`,
-			media: [
-				{ type: "image", file: "1.jpg" },
-				{ type: "image", file: "2.jpg" },
-			],
-		},
-		{
-			folderName: "test-project",
-			title: "TEST PROJECT",
-			description: `This is a test project.`,
-			media: [],
-		},
-		// Add new projects here following the same pattern
-	];
-
-	// Build project data from config
+	// Load descriptions from files and build project data
 	useEffect(() => {
-		const loadedProjects = projectConfig.map((config, index) => ({
-			id: index + 1,
-			title: config.title,
-			description: config.description,
-			thumbnailImage: `/${config.folderName}/images/thumb.jpg`,
-			media: config.media.map((item) => ({
-				type: item.type,
-				url:
-					item.type === "video"
-						? item.url
-						: `/${config.folderName}/images/${item.file}`,
-			})),
-		}));
+		const loadProjects = async () => {
+			const loadedProjects = [];
 
-		setProjects(loadedProjects);
-		setLoading(false);
+			for (const config of projectConfig) {
+				try {
+					// Load description from file
+					const response = await fetch(`/${config.folderName}/description.txt`);
+					const description = response.ok
+						? await response.text()
+						: "Description not found.";
+
+					// Build project object
+					const project = {
+						id: loadedProjects.length + 1,
+						title: config.title,
+						description: description.trim(), // Remove extra whitespace
+						thumbnailImage: `/${config.folderName}/images/thumb.jpg`,
+						media: config.media.map((item) => ({
+							type: item.type,
+							url:
+								item.type === "video"
+									? item.url
+									: `/${config.folderName}/images/${item.file}`,
+						})),
+					};
+
+					loadedProjects.push(project);
+				} catch (error) {
+					console.error(`Error loading project ${config.folderName}:`, error);
+				}
+			}
+
+			setProjects(loadedProjects);
+			setLoading(false);
+		};
+
+		loadProjects();
 	}, []);
 
 	const HomePage = () => (
@@ -82,21 +65,21 @@ The purpose of this project is to design a photobioreactor in an urban environme
 
 			{/* Projects Gallery */}
 			<main className="pb-12">
-				<div className="max-w-6xl mx-auto px-4 md:px-6">
+				<div className="">
 					{loading ? (
-						<div className="text-center py-12">Loading projects...</div>
+						<div className="text-center py-12 px-4">Loading projects...</div>
 					) : (
-						<div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-0">
+						<div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-0">
 							{projects.map((project) => (
 								<div
 									key={project.id}
 									className="group cursor-pointer relative"
 									onClick={() => setSelectedProject(project)}>
-									<div className="aspect-[3/2] bg-gray-100 overflow-hidden">
+									<div className="aspect-[3/2] bg-gray-100 overflow-hidden relative">
 										<img
 											src={project.thumbnailImage}
 											alt={project.title}
-											className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-70"
+											className="w-full h-full object-cover transition-opacity duration-300"
 											onError={(e) => {
 												// Try .png if .jpg fails
 												if (e.target.src.includes(".jpg")) {
@@ -104,6 +87,8 @@ The purpose of this project is to design a photobioreactor in an urban environme
 												}
 											}}
 										/>
+										{/* Dark overlay on hover */}
+										<div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
 										{/* Project title overlay */}
 										<div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
 											<h3 className="text-white text-lg md:text-xl font-light tracking-wide text-center px-4">
@@ -129,7 +114,7 @@ The purpose of this project is to design a photobioreactor in an urban environme
 						className="cursor-pointer"
 						onClick={() => setSelectedProject(null)}>
 						<h1
-							className="text-xl md:text-2xl font-bold tracking-[0.3em] md:tracking-[0.4em] text-center hover:text-gray-600 transition-colors"
+							className="text-xl md:text-2xl font-bold tracking-[0.2em] md:tracking-[0.3em] text-center hover:text-gray-600 transition-colors"
 							style={{ fontFamily: "'Varela Round', sans-serif" }}>
 							SABRINA NAUMOVSKI
 						</h1>
