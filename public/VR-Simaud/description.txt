@@ -1,0 +1,11 @@
+Completed with KieranTimberlake.
+
+Part of SimAUD 2021 proceedings.
+
+(password for accessing pdf: simaud2021)
+
+With guidance from my colleagues, I developed this Unity app with an Oculus Quest, and coded it in C#. This app was  the scaffolding for a future application that was put on hold due to the pandemic. The abstract has been pasted below:
+
+Designers do not have accessible methods for collecting quantitative data, such as gaze tracking and session replay data, from virtual reality (VR) sessions with stakeholders because data collection and post-session analysis features are not included in commercially available architectural VR walkthrough applications. This proof-of-concept project explores a singular VR application to facilitate architectural walkthroughs with project stakeholders as well as the collection and visualization of quantitative user data, particularly spatial user tracking. 
+
+This application collects structured data including location, gaze, controller, and reaction tracking during engagement sessions and maps these data in the form of user trails, gaze lines, and first and third person replays for interpretation. Summary data, such as overall perception, most popular room, longest time spent in-app, etc., are collected for interpretation, as well. Adoption of this VR application may provide additional insight into user preference and experience when presented architectural designs. It may also ensure against data loss from disordered multi-user VR sessions, such as missed subjective feedback, in-app user location, user activity, onboarding efficacy, and user comfort.

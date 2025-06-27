@@ -1,0 +1,17 @@
+Completed with KieranTimberlake.
+
+Today's urban spaces are loud. Increased car and air traffic can bring the ambient noise of an urban space to 60-85 decibels, levels at which long-term exposure can lead to hearing damage among other negative outcomes. Traditional acoustic approaches in architecture usually focus on minimizing or masking noise pollution, but instead, we wanted to explore how architecture could enhance the aural experience of an urban space. Our goal was to infuse a space with the rejuvenating energy of the natural environment, transforming it into something serene and content-rich. 
+
+For the 2019 Architectural Ceramic Assemblies Workshop at the University at Buffalo, our investigation culminated in a terracotta instrument and soundscape with composer Joshua Stamper, called Silo Silo.
+
+The team installed, played, and recorded Silo Silo inside the defunct grain elevators of Silo City in Buffalo, New York due to the remarkable acoustics of the silos and their uncanny resemblance to the terracotta cylinders of our instrument.
+
+APPROACH
+
+To make this instrument and composition, the team considered four primary variables: soundscape strategy, component design, component fabrication, and field activation. Through this process, the team created a series of hollow, terracotta cylinders that produced a sound when struck or scraped from the inside. We envisioned a battalion of terracotta cylinders, like a birch forest of slender, elegant tree trunks. Then we made two decisions to structure our investigation: first, we would use “effectors” or percussive tools within the cylinders to strike, brush, or scrape the terracotta and create sound, and second, the interior profile of the cylinders would be articulated to add nuance and create sonic variance. By experimenting with different configurations of the terracotta cylinders and the effectors within them, we created a series of percussive instruments. The site of the instrument installation—Silo City in Buffalo, New York— has fascinated many historic figures including Le Corbusier, Walter Gropius, and Erich Mendelsohn. The silos' acoustics made this a natural choice for the performance.
+
+BELLS, TWINKLES, AND FOOD PROCESSORS
+
+The team prototyped, tested, and tuned the cylinders to produce a diverse array of sounds. Using a CNC waterjet cutting machine to cut precise forms, the interiors of the cylinders were articulated with ridges, bends, and notches. Using piezo microphones and other audio equipment, the team tested each cylinder with whisks, dowels, wire brushes, and wooden and metal mallets. Some sounds were bell-like and twinkled while others sounded like a food processor or rotary phone. Some effector-and-cylinder combinations produced no noise at all, or simply would not fit together.
+
+Each cylinder and effector combination was recorded, reviewed, and cataloged to understand the possibilities of this material. In the process, many of the cylinders needed to be remade and tested in different combinations. Once categorized, the team combined individual components into an instrument for performance. Composer Joshua Stamper arranged a composition, and the team rehearsed the composition with Stamper before breaking down and re-assembling the instrument in Silo City.  This instrument is a proof-of-concept towards incorporating soundscapes into urban spaces. Its soothing sounds could activate a public space and provide respite for the public.

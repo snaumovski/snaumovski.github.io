@@ -1,0 +1,1 @@
+Magic Carpet is a built urban furniture project created at IAAC. It was designed using Karamaba and Grasshopper under the instruction of structural engineers and designers. The structure is composed of wooden cross sections that create folded surfaces, which can be used as seating, lounging or working spaces.

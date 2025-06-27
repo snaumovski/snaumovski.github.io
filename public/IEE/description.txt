@@ -1,0 +1,25 @@
+Completed with KieranTimberlake.
+
+This project is a solar-powered backlit LED sign for a campus building in Santa Barbara, CA. I led the design and fabrication of the technical aspects of this sign, including sizing the solar array, designing the watertight electrical housings, and fabricating the electrical assembly. More in situ images to be added shortly.
+
+The goal of the team was to create signage that reflects the spirit of the Institute for Energy Efficiency (IEE).
+
+Background 
+
+To create the IEE sign, the team had to consider feasibility, durability, and aesthetics. Initially, it was necessary to evaluate if the site could provide enough solar access to power an LED sign for a significant portion of the day. Once we deemed it feasible, we selected components to test based on their durability in wet outdoor environments and their value towards the piece's overall design, including how they could fit into the relatively thin structure. 
+
+Feasibility Study 
+
+Initial feasibility studies were conducted for the site using Grasshopper and Ladybug, and further feasibility studies were conducted on the specific components under review. We determined that the site could power an LED sign using 33 low profile 12”x12” solar panels, 3 sealed lead-acid batteries, and 1 solar charge controller. To do so, we first determined the amount of time the sign would have access to direct sunlight on a sunny day (2-3 hours), how many hours it would have indirect solar access (2-3 hours), and how much power indirect solar access was capable of producing (10-25% of direct solar access). We found that the solar panels would provide between 155W and 265W on a sunny day using these values. We also determined that the site provided primarily sunny days year-round. By testing the lights at different intensities, we found that they would require between 31W and 52W per hour, translating to 3-5 hours of maximum brightness and 5-8.5 hours of medium brightness on a sunny day. Based on these calculations, we chose a battery bank that could store at least 265W of power and determined that one solar charge controller would be sufficient. 
+
+Mockups 
+
+We created a series of mockups to test lighting placement, solar panel functionality, system design, and sizing. 
+
+Fabrication 
+
+The team sent out drawings and a 3D model to a metal fabricator to create the structure of the sign. Once the metal base was received, the team began the assembly process, adhering the solar panels to the base, connecting and organizing the wiring, and waterproofing and securing the components.  
+
+Testing 
+
+The team waited patiently for a sunny day to test the solar panel array upon completing the assembly. The glass in the shop windows has a low-E coating which prevents solar panels from working correctly behind them, so the sign was wheeled out of the shop doors to test in direct sunlight. Testing confirmed that the panels, batteries, and charge controller behave consistently with earlier calculations. Once testing was complete, we installed the final waterproofing elements and sent it to Santa Barbara.

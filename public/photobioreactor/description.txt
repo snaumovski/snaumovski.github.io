@@ -1,1 +1,12 @@
-fdsahfjksdahjkf
+“We believe that, if human beings are part of an ecology, then the objects humans make should also be part of it. Among humans and insects alike, inhabitable spaces are the result of a deliberate organization of material, energy, information and a continuous interaction with the environment, whose goal is to help develop tight-knit communities.”
+
+The purpose of this project is to design a photobioreactor in an urban environment for the production and consumption of future food - specifically the micro algae spirulina.
+
+The shape of the brain coral lends itself readily to the form of a tubular photobioreactor, with winding hills and valleys representing the tubes themselves. Brain Corals exist symbiotically with algae; the algae depends on the stony coral for structure while the coral depends on the algae for food.
+
+A brain coral pattern can be generated using a couple of different algorithms, particularly through the concepts of reaction-diffusion and differential growth. Reaction-diffusion is pixel or grid based simulation that forms all at once, instead of gradually from an initial position – which does not lend itself to the functionality of a tubular photobioreactor. Using the concept of linear differential growth, we were able to design a tube system that was at once continuous and variegated - in a controlled way.
+
+In this case, differential growth is generated using a mass-spring system - a physics simulation that treats lines and surfaces as springs in tension. This algorithm, based on the work of Daniel Piker, works through line expansion growth.  An initial line is segmented into individual springs and grows through lengthening each spring individually with collision detection. Spheres drawn on each point of division provide the collision detection, and as a result a hexagonal organization will naturally occur (circles tend to organize into a hexagonal grid).
+
+The photobioreactor was fabricated with hand-blown glass by a local glass artist. The glass sculpture is then backed with an Arduino controlled LED panel that pulses with the same timing as a heartbeat. The time increments between the LED flashes is decreased when approached - through the use of motion sensors. The differential widths of the glass channels were designed to optimize the flow of spirulina, with smaller widths increasing flow speed upward against gravity and larger widths only in areas where gravity assists the water flow. For its exhibition at IAAC, the photobioreactor was mounted on 3 wooden panels that were CNC milled to show the continuation of the pattern as it would be in an ideal scenario.
+

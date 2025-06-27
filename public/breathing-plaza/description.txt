@@ -1,0 +1,8 @@
+The goal of the Breathing Plaza is to create a space that reacts in real time to use. If a person enters the plaza, the structure will slowly envelop them, creating a bubble-like retreat from the outside. If a group of people enter, a larger bubble will form - creating an intimate meeting environment. The adaptations of the plaza are telegraphed visually to passersby and users within, allowing them to either join or avoid.
+
+I conducted multiple experiments on both the actuators themselves and the connections of these actuators into a larger system. Each actuator is composed using similar concepts and components - an inner balloon is encased within a diamond braided mesh fabric - which when inflated restricts the normal expansion of the balloon instead into linear contraction. 
+
+Later experiments build off this concept - switching out the balloon for a silicone bladder and the mesh for a ribbon (braided with the same diamond pattern to create the necessary contraction). An inextensible material - in this case a simple strip of paper - was also introduced in an effort to change the direction of the contraction.
+
+Two systems came of these experiments - the first using the pneumatic muscles (experiment 1) to pull on an elastic fabric to change the shape of its surface (experiment 7), and the second using the chained combo actuators (experiment 6) to create a surface made completely of the actuators themselves (experiment 8).
+

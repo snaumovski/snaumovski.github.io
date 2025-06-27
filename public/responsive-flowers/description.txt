@@ -1,0 +1,3 @@
+In this work in progress I am focusing on using motors to expand and contract a matrix of flowers using capacitive touch sensors + arduinos. In an effort to communicate with pollinators, some species of flowers will close after a pollinator has made contact with it. This project aims to educate viewers about that relationship within an NYC butterfly/insect exhibit.
+
+(Work done in conjunction with Terreform ONE research fellowship)

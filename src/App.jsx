@@ -69,7 +69,7 @@ const Portfolio = () => {
 					{loading ? (
 						<div className="text-center py-12 px-4">Loading projects...</div>
 					) : (
-						<div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-0">
+						<div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0">
 							{projects.map((project) => (
 								<div
 									key={project.id}
@@ -136,13 +136,16 @@ const Portfolio = () => {
 									{project.title}
 								</h1>
 								<div className="prose prose-lg max-w-none">
-									{project.description.split("\n\n").map((paragraph, index) => (
-										<p
-											key={index}
-											className="mb-6 text-gray-700 leading-relaxed font-light">
-											{paragraph}
-										</p>
-									))}
+									{project.description
+										.split(/\n\s*\n/)
+										.filter((p) => p.trim())
+										.map((paragraph, index) => (
+											<p
+												key={index}
+												className="mb-6 text-gray-700 leading-relaxed font-light">
+												{paragraph}
+											</p>
+										))}
 								</div>
 							</div>
 						</div>
