@@ -52,8 +52,6 @@ export const projectConfig = [
 				type: "video",
 				url: "https://www.youtube.com/embed/p8ug6mn93xk?si=2xIBL1puQLUIuyG2",
 			},
-			{ type: "image", file: "1.jpg" },
-			{ type: "image", file: "2.jpg" },
 		],
 	},
 	{
