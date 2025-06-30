@@ -1,13 +1,9 @@
-Submission to the Reality Virtually Hackathon 2019.
+Submission to the [Reality Virtually Hackathon 2019](https://devpost.com/software/sound-space).
 
-Winner of:
-
-Best use of Autodesk Forge
-
-Best in Industrial/Commercial Category
-
-ACADIA 2019 - Published paper
-
-IEEE Games Entertainment and Media 2019 - Published paper
+Winner of:<br>
+- Best use of Autodesk Forge
+- Best in Industrial/Commercial Category
+- ACADIA 2019 - [Published paper](https://www.amazon.com/Acadia-2019-Proceedings-Association-Architecture/dp/0578591790)
+- IEEE Games Entertainment and Media 2019 - [Published paper](https://ieeexplore.ieee.org/document/8811535)
 
 To address the often-overlooked consideration of acoustic quality in architectural design, I contributed to the development of an interactive VR application called Sound Space. This tool empowers architects to visualize and understand acoustic data, facilitating informed decision-making in early design phases. With this interactive VR application, feedback for design decisions is obtained instantly. The user can change the design of the space, toggle through different design options, and immediately engage with the results of their decision-making with a simple thumb click. Through this seamless feedback loop, the designer gains the agency to make informed decisions quickly and without the need for an external expert. The goal of this application is to reduce barriers to acoustic considerations in early design phases, aid in the designing of spaces that would not traditionally have an acoustic focus, and ultimately contribute to the normalization of acoustically comfortable buildings.

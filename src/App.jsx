@@ -6,6 +6,37 @@ const Portfolio = () => {
 	const [projects, setProjects] = useState([]);
 	const [loading, setLoading] = useState(true);
 
+	// Simple markdown parser for descriptions
+	const parseMarkdown = (text) => {
+		// Convert <br> tags to line breaks
+		let parsed = text.replace(/<br>/g, "<br>");
+
+		// Convert two spaces + newline to <br> (single line break)
+		parsed = parsed.replace(/  \n/g, "<br>\n");
+
+		// Convert bullet lists (- or * at start of line)
+		parsed = parsed.replace(
+			/^[-*] (.+)$/gm,
+			'<li style="margin-bottom: 0.1rem;">$1</li>'
+		);
+
+		// Wrap consecutive <li> items in <ul> tags
+		parsed = parsed.replace(/(<li>.*<\/li>)(\n(<li>.*<\/li>))*/g, (match) => {
+			return '<ul class="list-disc list-inside mb-4">' + match + "</ul>";
+		});
+
+		// Convert **bold** to <strong>
+		parsed = parsed.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+		// Convert [link text](url) to <a>
+		parsed = parsed.replace(
+			/\[([^\]]+)\]\(([^)]+)\)/g,
+			'<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">$1</a>'
+		);
+
+		return parsed;
+	};
+
 	// Load descriptions from files and build project data
 	useEffect(() => {
 		const loadProjects = async () => {
@@ -69,7 +100,7 @@ const Portfolio = () => {
 					{loading ? (
 						<div className="text-center py-12 px-4">Loading projects...</div>
 					) : (
-						<div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0">
+						<div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-0">
 							{projects.map((project) => (
 								<div
 									key={project.id}
@@ -142,9 +173,11 @@ const Portfolio = () => {
 										.map((paragraph, index) => (
 											<p
 												key={index}
-												className="mb-6 text-gray-700 leading-relaxed font-light">
-												{paragraph}
-											</p>
+												className="mb-6 text-gray-700 leading-relaxed font-light"
+												dangerouslySetInnerHTML={{
+													__html: parseMarkdown(paragraph.trim()),
+												}}
+											/>
 										))}
 								</div>
 							</div>

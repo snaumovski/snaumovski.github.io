@@ -1,7 +1,6 @@
 Completed with KieranTimberlake.
 
-Part of SimAUD 2021 proceedings.
-
+Part of SimAUD 2021 [proceedings](http://simaud.org/2021/content.php?f=66.pdf).<br>
 (password for accessing pdf: simaud2021)
 
 With guidance from my colleagues, I developed this Unity app with an Oculus Quest, and coded it in C#. This app was  the scaffolding for a future application that was put on hold due to the pandemic. The abstract has been pasted below:
